@@ -8,6 +8,13 @@ resource "kubernetes_namespace_v1" "openshift_cnv" {
       "openshift.io/cluster-monitoring" = "true"
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations,
+      metadata[0].labels,
+    ]
+  }
 }
 
 # Create OperatorGroup for OpenShift Virtualization
