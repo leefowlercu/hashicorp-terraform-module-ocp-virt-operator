@@ -12,5 +12,5 @@ output "cnv_operator_installed" {
 
 output "cnv_hyperconverged_deployed" {
   description = "Indicates whether the HyperConverged resource was deployed."
-  value       = kubernetes_manifest.cnv_hyperconverged.manifest.metadata.name
+  value       = var.enable_hyperconverged ? kubernetes_manifest.cnv_hyperconverged[0].manifest.metadata.name : null
 }

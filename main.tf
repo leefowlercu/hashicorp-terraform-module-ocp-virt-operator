@@ -48,6 +48,8 @@ resource "kubernetes_manifest" "cnv_subscription" {
 
 # Create HyperConverged resource to deploy OpenShift Virtualization
 resource "kubernetes_manifest" "cnv_hyperconverged" {
+  count = var.enable_hyperconverged ? 1 : 0
+
   manifest = {
     apiVersion = "hco.kubevirt.io/v1beta1"
     kind       = "HyperConverged"
