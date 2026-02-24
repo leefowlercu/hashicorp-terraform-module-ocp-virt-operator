@@ -1,1 +1,1 @@
-enable_hyperconverged = false
+enable_hyperconverged = true
